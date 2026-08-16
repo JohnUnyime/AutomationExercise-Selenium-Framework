@@ -1,0 +1,21 @@
+# Maven
+target/
+allure-results/
+screenshots/
+
+# IDE - Eclipse
+.classpath
+.project
+.settings/
+
+# IDE - IntelliJ
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test output
+test-output/
+*.log

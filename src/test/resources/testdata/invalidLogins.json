@@ -1,0 +1,4 @@
+[
+  { "email": "xklclkcdj@gmail.com", "password": "definitelyWrongPassword123", "scenario": "wrong password" },
+  { "email": "GENERATE_UNIQUE", "password": "anyPassword123", "scenario": "unregistered email" }
+]

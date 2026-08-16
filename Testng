@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="AutomationExerciseSuite" parallel="tests" thread-count="2">
+
+    <!--
+      Registers GlobalRetryTransformer so every @Test method in the project
+      automatically gets RetryAnalyzer attached -- no per-test annotation needed.
+
+      TestListener is NOT listed here on purpose: it's already registered via
+      the @Listeners(TestListener.class) annotation on Basetest, so adding it
+      here too would register it twice.
+    -->
+    <listeners>
+        <listener class-name="com.qa.automationexercise.base.GlobalRetryTransformer" />
+    </listeners>
+
+    <!--
+      parallel="tests" + thread-count="2" on the <suite> tag means these two
+      <test> blocks (Chrome and Firefox) run AT THE SAME TIME, on separate
+      threads -- not one after another. This is exactly the scenario where
+      DriverFactory's ThreadLocal<WebDriver> actually matters: each thread
+      gets its own isolated WebDriver instance, so the Chrome run and the
+      Firefox run never collide or share browser state.
+    -->
+
+    <test name="Chrome - Headless">
+        <parameter name="browser" value="chrome" />
+        <parameter name="headless" value="true" />
+        <classes>
+            <class name="com.qa.automationexercise.tests.SmokeTest" />
+            <class name="com.qa.automationexercise.tests.LoginTest" />
+            <class name="com.qa.automationexercise.tests.CartTest" />
+            <class name="com.qa.automationexercise.tests.OrderConfirmationTest" />
+            <class name="com.qa.automationexercise.tests.PaymentTest" />
+            <class name="com.qa.automationexercise.tests.ProductsTest" />
+            <class name="com.qa.automationexercise.tests.PurchaseFlowTest" />
+        </classes>
+    </test>
+
+    <test name="Firefox - Headless">
+        <parameter name="browser" value="firefox" />
+        <parameter name="headless" value="true" />
+        <classes>
+            <class name="com.qa.automationexercise.tests.SmokeTest" />
+            <class name="com.qa.automationexercise.tests.LoginTest" />
+            <class name="com.qa.automationexercise.tests.CartTest" />
+            <class name="com.qa.automationexercise.tests.OrderConfirmationTest" />
+            <class name="com.qa.automationexercise.tests.PaymentTest" />
+            <class name="com.qa.automationexercise.tests.ProductsTest" />
+            <class name="com.qa.automationexercise.tests.PurchaseFlowTest" />
+        </classes>
+    </test>
+
+</suite>
