@@ -17,7 +17,7 @@
     <!--
       parallel="tests" + thread-count="2" on the <suite> tag means these two
       <test> blocks (Chrome and Firefox) run AT THE SAME TIME, on separate
-      threads -- not one after another. This is exactly the scenario where
+      threads - not one after another. This is exactly the scenario where
       DriverFactory's ThreadLocal<WebDriver> actually matters: each thread
       gets its own isolated WebDriver instance, so the Chrome run and the
       Firefox run never collide or share browser state.
