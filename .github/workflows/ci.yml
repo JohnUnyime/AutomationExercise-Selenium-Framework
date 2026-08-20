@@ -15,4 +15,5 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - run: mvn test
+      - uses: browser-actions/setup-chrome@v1
+      - run: mvn test -Dheadless=true
