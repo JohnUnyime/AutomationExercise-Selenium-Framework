@@ -4,7 +4,7 @@
 
     <!--
       Registers GlobalRetryTransformer so every @Test method in the project
-      automatically gets RetryAnalyzer attached -- no per-test annotation needed.
+      automatically gets RetryAnalyzer attached, no per-test annotation needed.
 
       TestListener is NOT listed here on purpose: it's already registered via
       the @Listeners(TestListener.class) annotation on Basetest, so adding it
