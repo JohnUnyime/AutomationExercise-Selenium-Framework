@@ -1,5 +1,7 @@
 # AutomationExercise Selenium Framework
 
+![CI](https://github.com/JohnUnyime/AutomationExercise-Selenium-Framework/actions/workflows/ci.yml/badge.svg)
+
 A Selenium WebDriver + TestNG test automation framework built against the [AutomationExercise](https://automationexercise.com) practice site, using the Page Object Model (POM) design pattern with JSON-driven test data.
 
 ## Tech Stack
