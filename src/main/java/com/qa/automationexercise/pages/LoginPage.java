@@ -70,7 +70,7 @@ public class LoginPage extends BasePage {
      * Use this for the SUCCESS case (new, unused email). The site navigates
      * away from /login to the account-info step on success, so this returns
      * SignupPage.
-     */
+'     */
     public SignupPage signup(String name, String email) {
         enterSignupName(name);
         enterSignupEmail(email);

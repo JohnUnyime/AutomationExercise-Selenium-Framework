@@ -19,3 +19,6 @@ Thumbs.db
 # Test output
 test-output/
 *.log
+
+# Secrets - never commit real credentials
+secrets.properties
