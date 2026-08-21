@@ -45,6 +45,9 @@ public class Basetest {
      * automationexercise.com (Google ad stack + Flashtalking).
      */
     protected void blockAdDomains() {
+        if (!(driver instanceof ChromeDriver)) {
+            return; // ad-blocking via CDP is Chrome-specific; skip for other browsers
+        }
         ChromeDriver chromeDriver = (ChromeDriver) driver;
         Map<String, Object> params = new HashMap<>();
         params.put("urls", List.of(
@@ -52,7 +55,10 @@ public class Basetest {
             "*googlesyndication.com*",
             "*googleadservices.com*",
             "*flashtalking.com*"
+            // ... rest of your existing method unchanged
         ));
+        // ... whatever comes after, unchanged
+    
         chromeDriver.executeCdpCommand("Network.enable", new HashMap<>());
         chromeDriver.executeCdpCommand("Network.setBlockedURLs", params);
     }
