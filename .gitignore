@@ -21,4 +21,4 @@ test-output/
 *.log
 
 # Secrets - never commit real credentials
-secrets.properties
+secrets.properties.allure/
