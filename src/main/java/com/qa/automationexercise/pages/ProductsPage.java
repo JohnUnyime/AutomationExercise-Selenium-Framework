@@ -1,6 +1,7 @@
 package com.qa.automationexercise.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -82,6 +83,10 @@ public class ProductsPage extends BasePage {
             "//div[@class='productinfo text-center'][p[normalize-space()='" + productName + "']]" +
             "//a[contains(@class,'add-to-cart')]"
         );
+
+        WebElement addToCartElement = driver.findElement(scopedAddToCart);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", addToCartElement);
+
         wait.until(ExpectedConditions.elementToBeClickable(scopedAddToCart)).click();
         return this;
     }
